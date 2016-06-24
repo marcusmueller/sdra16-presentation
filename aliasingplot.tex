@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis} [
+        height=5cm,width=9cm,xlabel={$f$},axis lines=middle,
+        xmin=-120,xmax=200,ymin=0,ymax=1.8,no markers,
+        xtick={80,160},xticklabels={$\frac{f_s}{2}$,$f_s=\frac{1}{T}$},
+        ytick={0},yticklabels={},ylabel={$S_s(f)$}
+  ]
+    \addplot[fg=solarizedRebase03] coordinates {(-100,0) (-20,1) (0,0)};
+    \addplot[black] coordinates {(0,0) (20,1) (100,0)};
+    \addplot[black,name path=A] coordinates {(60,0) (140,1) (160,0)};
+    \addplot[black,dashed,name path=B] coordinates {(80,0) (80,1.5)};
+    \addplot[blue] fill between[of=A and B,soft clip={domain=60:80}];
+\end{axis}
+\end{tikzpicture}
+\end{document}
