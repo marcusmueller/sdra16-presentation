@@ -359,8 +359,9 @@ Intuitively, we know that all our sines are just single tones, and will leave a 
 
   DSP in the USRP \bigskip
 
-
-  {\includegraphics[width=\textwidth]{b200}}
+  \only<1>{\includegraphics[width=\textwidth]{b200}}
+  
+  \only<2>{\includegraphics[width=\textwidth]{b200_annotated}}
 
 \end{frame}
 
@@ -385,9 +386,14 @@ Intuitively, we know that all our sines are just single tones, and will leave a 
   {\begin{itemize}
     \item 2045 tap monster of filter
     \item \ldots runs in real time on old laptop at up to 10 MS/s
+      \begin{itemize}
+        \item \ldots which is less than 25MS/s were feeding it :(
+        \item \ldots Frequency Xlating FFT Filter easily does 29 MS/s with a single thread, though
+        \item \ldots Real-world system would split that Filter into multiple decimator
+      \end{itemize}
     \item attenuation far above necessity
   \end{itemize}}
-  {\includegraphics[width=\textwidth]{filterplot}}
+  {\includegraphics[width=\textwidth]{filterplothalf}}
 
 \end{frame}
 \begin{frame}{Looking at a complete system}

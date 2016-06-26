@@ -21,3 +21,11 @@ pyplot.ylabel("power [dB]")
 pyplot.xlabel("frequency [MHz]")
 pyplot.ylim(-100,1)
 savefig(f,"filterplot")
+
+
+f=makefig((1024./90, 300./90))
+pyplot.plot(w*12.5/numpy.pi,10*numpy.log10(numpy.abs(h)))
+pyplot.ylabel("power [dB]")
+pyplot.xlabel("frequency [MHz]")
+pyplot.ylim(-100,1)
+savefig(f,"filterplothalf")
